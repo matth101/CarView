@@ -48,7 +48,7 @@ def recommend_filters(
     
     filters = get_recommended_filters(chat_logs)
 
-    return {filters: VehicleFilterRequest}
+    return {"filters": filters}
 
 def main():
     """Launch FastAPI server with uvicorn when run as `python server.py`."""
