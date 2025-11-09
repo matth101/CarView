@@ -26,7 +26,7 @@ You are a car expert assistant. Here is a list of cars and their descriptions:
 
 User preferences: {preferences_text}
 
-From this list, recommend the top {top_n} cars that best match the user's preferences.
+From this list, recommend the top {top_n} cars that best match the user's preferences. Always return either the {top_n} cars, or return all of the cars in the best order if there are less than 9 cars found.
 Return ONLY the exact names of the cars in a valid JSON array (e.g. ["Camry XLE", "RAV4 Hybrid", "Highlander Limited"]).
 """
 
@@ -120,13 +120,28 @@ Only return a valid JSON object.
         filters_dict = {}
 
     # Construct VehicleFilterRequest
+    # Construct VehicleFilterRequest with better null handling
     vehicle_filter = VehicleFilterRequest(
-        vehicle_types=filters_dict.get("vehicle_types"),
-        price_range=tuple(filters_dict.get("price_range")) if filters_dict.get("price_range") else None,
-        mpg_range=tuple(filters_dict.get("mpg_range")) if filters_dict.get("mpg_range") else None,
-        seating_options=filters_dict.get("seating_options"),
+        vehicle_types=filters_dict.get("vehicle_types") if filters_dict.get("vehicle_types") else None,
+        price_range=(
+            tuple(filters_dict.get("price_range")) 
+            if filters_dict.get("price_range") 
+            and len(filters_dict.get("price_range")) == 2 
+            and None not in filters_dict.get("price_range") 
+            else None
+        ),
+        mpg_range=(
+            tuple(filters_dict.get("mpg_range")) 
+            if filters_dict.get("mpg_range") 
+            and len(filters_dict.get("mpg_range")) == 2 
+            and None not in filters_dict.get("mpg_range") 
+            else None
+        ),
+        seating_options=filters_dict.get("seating_options") if filters_dict.get("seating_options") else None,
         preferences_text=filters_dict.get("preferences_text", "")
     )
+
+    print("✅ Constructed filter request:", vehicle_filter.dict())
 
     return vehicle_filter
 

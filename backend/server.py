@@ -10,6 +10,8 @@ from dotenv import load_dotenv
 from typing import List, Tuple
 from google import genai
 from pydantic import BaseModel
+import asyncio 
+
 
 
 load_dotenv(dotenv_path="./dev.env")
@@ -45,20 +47,20 @@ def get_vehicle_by_model(full_model: str):
 @app.post("/recommend_cars")
 def recommend_cars(
     filters: VehicleFilterRequest,
-    top_n: int = Query(5, description="Number of cars to recommend")
+    top_n: int = Query(9, description="Number of cars to recommend")
 ):
-    print("🚗 Received filter request:", filters.dict())
+    print(" Received filter request:", filters.dict())
     
     df = load_vehicle_data(vehicle_data_path)
-    print(f"📊 Loaded {len(df)} vehicles from database")
+    print(f"Loaded {len(df)} vehicles from database")
 
     # Apply filters
     filtered_df = filter_vehicles(df, filters)
-    print(f"🔍 After filtering: {len(filtered_df)} vehicles match criteria")
+    print(f" After filtering: {len(filtered_df)} vehicles match criteria")
 
     # Use Gemini to pick top matches
     best = pick_best_cars(filtered_df, filters.preferences_text, top_n)
-    print(f"✅ Returning {len(best)} recommendations")
+    print(f" Returning {len(best)} recommendations")
 
     return {"recommendations": best}
 
@@ -107,9 +109,13 @@ async def chat_with_user(websocket: WebSocket):
 
     try:
         while True:
+            print("⏳ Waiting for message...")
             data = await websocket.receive_json()
+            print(f"📨 Received data: {data}")
+            
             role = data.get("role", "user")
             message = data.get("message", "")
+            print(f"👤 Role: {role}, Message: {message}")
 
             chat_logs.append((role, message))
 
@@ -117,24 +123,45 @@ async def chat_with_user(websocket: WebSocket):
             prompt = initial_prompt + "\n"
             prompt += "\n".join([f"{r}: {m}" for r, m in chat_logs if r in ("user", "assistant")])
             prompt += "\nAssistant:"
+            
+            print(f"🤖 Sending to Gemini...")
 
-            # Streaming callback function
-            async def send_token(token: str):
-                print(token)
-                await websocket.send_json({"role": "assistant", "message": token, "stream": True})
-
-            # Use Gemini streaming API
-            async for token in gemini_client.models.generate_content_stream(
+            # Use Gemini streaming API (corrected)
+            response = gemini_client.models.generate_content(
                 model=get_model_name(),
                 contents=prompt,
-            ):
-                await send_token(token.text)
+            )
+            # For now, simulate streaming by splitting the response
+            full_text = response.text
+            print(f"✅ Full response: {full_text[:50]}...")
 
-            # Mark end of stream
-            await websocket.send_json({"role": "assistant", "message": "", "stream": False})
+            # Split into words and stream them
+            words = full_text.split()
+            for i, word in enumerate(words):
+                chunk = word + " "
+                await websocket.send_json({
+                    "role": "assistant",
+                    "message": chunk,
+                    "stream": True
+                })
+                # Small delay for smooth streaming effect
+                await asyncio.sleep(0.03)
+
+            # Send end of stream
+            await websocket.send_json({
+                "role": "assistant",
+                "message": "",
+                "stream": False
+            })
+
+            print("📤 Streaming complete")
 
     except WebSocketDisconnect:
         print("User disconnected from chat")
+    except Exception as e:
+        print(f"❌ Error in WebSocket: {e}")
+        import traceback
+        traceback.print_exc()
 
 def main():
     """Launch FastAPI server with uvicorn when run as `python server.py`."""

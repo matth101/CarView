@@ -1,14 +1,39 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, DollarSign } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface BudgetDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  onSave: () => void;
+  budgetData: {
+    income: string;
+    expenses: string;
+    cash: string;
+    creditScore: string;
+  };
+  onSave: (data: any) => void;
 }
 
-const BudgetDialog = ({ isOpen, onClose, onSave }: BudgetDialogProps) => {
+const BudgetDialog = ({ isOpen, onClose, budgetData, onSave }: BudgetDialogProps) => {
+  const [income, setIncome] = useState(budgetData.income);
+  const [expenses, setExpenses] = useState(budgetData.expenses);
+  const [cash, setCash] = useState(budgetData.cash);
+  const [creditScore, setCreditScore] = useState(budgetData.creditScore);
+
+  // Update local state when dialog opens with saved values
+  useEffect(() => {
+    if (isOpen) {
+      setIncome(budgetData.income);
+      setExpenses(budgetData.expenses);
+      setCash(budgetData.cash);
+      setCreditScore(budgetData.creditScore);
+    }
+  }, [isOpen, budgetData]);
+
+  const handleSave = () => {
+    onSave({ income, expenses, cash, creditScore });
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -52,7 +77,16 @@ const BudgetDialog = ({ isOpen, onClose, onSave }: BudgetDialogProps) => {
                 </label>
                 <input
                   type="number"
-                  placeholder="$5,000"
+                  placeholder="5000"
+                  value={income}
+                  onChange={(e) => setIncome(e.target.value)}
+                  onKeyPress={(e) => {
+                    // Only allow numbers, backspace, and delete
+                    if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                      e.preventDefault();
+                    }
+                  }}
+                  min="0"
                   className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-toyota-red transition-colors"
                 />
               </div>
@@ -63,7 +97,15 @@ const BudgetDialog = ({ isOpen, onClose, onSave }: BudgetDialogProps) => {
                 </label>
                 <input
                   type="number"
-                  placeholder="$2,000"
+                  placeholder="2000"
+                  value={expenses}
+                  onChange={(e) => setExpenses(e.target.value)}
+                  onKeyPress={(e) => {
+                    if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                      e.preventDefault();
+                    }
+                  }}
+                  min="0"
                   className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-toyota-red transition-colors"
                 />
               </div>
@@ -74,7 +116,15 @@ const BudgetDialog = ({ isOpen, onClose, onSave }: BudgetDialogProps) => {
                 </label>
                 <input
                   type="number"
-                  placeholder="$10,000"
+                  placeholder="10000"
+                  value={cash}
+                  onChange={(e) => setCash(e.target.value)}
+                  onKeyPress={(e) => {
+                    if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                      e.preventDefault();
+                    }
+                  }}
+                  min="0"
                   className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-toyota-red transition-colors"
                 />
               </div>
@@ -83,7 +133,11 @@ const BudgetDialog = ({ isOpen, onClose, onSave }: BudgetDialogProps) => {
                 <label className="block text-sm font-bold mb-2 text-gray-700">
                   Credit Score Range
                 </label>
-                <select className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-toyota-red transition-colors">
+                <select 
+                  value={creditScore}
+                  onChange={(e) => setCreditScore(e.target.value)}
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-toyota-red transition-colors"
+                >
                   <option>Excellent (750+)</option>
                   <option>Good (700-749)</option>
                   <option>Fair (650-699)</option>
@@ -92,15 +146,15 @@ const BudgetDialog = ({ isOpen, onClose, onSave }: BudgetDialogProps) => {
               </div>
             </div>
 
-            <div className="flex gap-3 mt-8">
+            <div className="flex gap-3 mt-6">
               <button
                 onClick={onClose}
                 className="flex-1 border-2 border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-colors font-bold"
               >
-                Skip for Now
+                Cancel
               </button>
               <button
-                onClick={onSave}
+                onClick={handleSave}
                 className="flex-1 bg-toyota-red text-white py-3 rounded-xl hover:bg-red-700 transition-colors font-bold"
               >
                 Save Budget
