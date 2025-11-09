@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-interface LandingPageProps {
-	onStart: () => void;
-}
-
-const LandingPage = ({ onStart }: LandingPageProps) => {
+const LandingPage = () => {
 	const navigate = useNavigate();
 
 	return (

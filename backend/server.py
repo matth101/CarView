@@ -47,18 +47,18 @@ def recommend_cars(
     filters: VehicleFilterRequest,
     top_n: int = Query(5, description="Number of cars to recommend")
 ):
-    print("🚗 Received filter request:", filters.dict())
+    print(" Received filter request:", filters.dict())
     
     df = load_vehicle_data(vehicle_data_path)
-    print(f"📊 Loaded {len(df)} vehicles from database")
+    print(f"Loaded {len(df)} vehicles from database")
 
     # Apply filters
     filtered_df = filter_vehicles(df, filters)
-    print(f"🔍 After filtering: {len(filtered_df)} vehicles match criteria")
+    print(f" After filtering: {len(filtered_df)} vehicles match criteria")
 
     # Use Gemini to pick top matches
     best = pick_best_cars(filtered_df, filters.preferences_text, top_n)
-    print(f"✅ Returning {len(best)} recommendations")
+    print(f" Returning {len(best)} recommendations")
 
     return {"recommendations": best}
 

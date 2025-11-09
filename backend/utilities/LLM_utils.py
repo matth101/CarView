@@ -26,7 +26,7 @@ You are a car expert assistant. Here is a list of cars and their descriptions:
 
 User preferences: {preferences_text}
 
-From this list, recommend the top {top_n} cars that best match the user's preferences.
+From this list, recommend the top {top_n} cars that best match the user's preferences. Always return either the {top_n} cars, or return all of the cars in the best order if there are less than 9 cars found.
 Return ONLY the exact names of the cars in a valid JSON array (e.g. ["Camry XLE", "RAV4 Hybrid", "Highlander Limited"]).
 """
 
