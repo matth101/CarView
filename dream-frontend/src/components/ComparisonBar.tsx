@@ -1,11 +1,25 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface ComparisonBarProps {
   count: number;
+  vehicles: any[];
 }
 
-const ComparisonBar = ({ count }: ComparisonBarProps) => {
+const ComparisonBar = ({ count, vehicles }: ComparisonBarProps) => {
+  const navigate = useNavigate();
+
+  const handleCompare = () => {
+    console.log('🚗 Navigating to compare with vehicles:', vehicles);
+    navigate('/compare', { 
+      state: { 
+        vehicles,
+        fromResults: true  // Flag to know we came from results
+      } 
+    });
+  };
+
   return (
     <motion.div
       initial={{ y: 100 }}
@@ -21,7 +35,7 @@ const ComparisonBar = ({ count }: ComparisonBarProps) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.href = '/compare'}
+          onClick={handleCompare}
           className="bg-toyota-red hover:bg-red-700 px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-colors"
         >
           Compare Now

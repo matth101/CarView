@@ -14,6 +14,7 @@ const Header = () => {
           alt="Toyota" 
           className="h-8"
         />
+        <span className="text-gray-900 text-xl font-black tracking-tight">TOYOTA</span>
       </button>
       <nav className="flex gap-8 text-sm font-semibold">
         <button 

@@ -5,39 +5,8 @@ import { useState } from 'react';
 interface ResultsSectionProps {
 	recommendations: any[];
 	compareList: Set<number>;
-	onToggleCompare: (id: number) => void;
+	onToggleCompare: (id: number, vehicle: any) => void;  // Add vehicle parameter
 }
-
-
-// const curatedCars = [
-//   {
-//     id: 1,
-//     name: 'Camry',
-//     tagline: 'Legendary reliability meets modern elegance',
-//     price: 26320,
-//     mpg: 32,
-//     matchScore: 95,
-//     image: 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
-//   },
-//   {
-//     id: 2,
-//     name: 'RAV4 Hybrid',
-//     tagline: 'Adventure-ready efficiency',
-//     price: 31575,
-//     mpg: 40,
-//     matchScore: 92,
-//     image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80',
-//   },
-//   {
-//     id: 3,
-//     name: 'Corolla Hybrid',
-//     tagline: 'Efficiency perfected',
-//     price: 24500,
-//     mpg: 50,
-//     matchScore: 88,
-//     image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800&q=80',
-//   },
-// ];
 
 const ResultsSection = ({ recommendations, compareList, onToggleCompare }: ResultsSectionProps) => {
 	const [favorites, setFavorites] = useState<Set<number>>(new Set());
@@ -45,24 +14,24 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 
 	console.log('🎨 Rendering results with recommendations:', recommendations);
 
-	const cars = recommendations.length > 0 
-	? recommendations.slice(0, 9).map((car, idx) => {
-		// Calculate match score based on how well it fits filters
-		const baseScore = 85;
-		const positionBonus = (6 - idx) * 2; // First result gets +10, last gets +2
-		const matchScore = Math.min(99, baseScore + positionBonus);
-		
-		return {
-		  id: idx + 1,
-		  name: car.full_model || 'Unknown Vehicle',
-		  tagline: car.description || 'A quality Toyota vehicle',
-		  price: car.msrp || 0,
-		  mpg: car.mpg_combined || 0,
-		  matchScore: matchScore,
-		  image: 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
-		};
-	  })
-	: [];
+	const cars = recommendations.length > 0
+		? recommendations.slice(0, 9).map((car, idx) => {
+			// Calculate match score based on how well it fits filters
+			const baseScore = 85;
+			const positionBonus = (6 - idx) * 2; // First result gets +10, last gets +2
+			const matchScore = Math.min(99, baseScore + positionBonus);
+
+			return {
+				id: idx + 1,
+				name: car.full_model || 'Unknown Vehicle',
+				tagline: car.description || 'A quality Toyota vehicle',
+				price: car.msrp || 0,
+				mpg: car.mpg_combined || 0,
+				matchScore: matchScore,
+				image: 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
+			};
+		})
+		: [];
 
 	console.log(' Mapped cars for display:', cars);
 
@@ -173,10 +142,10 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 
 								{/* Compare Checkbox */}
 								<button
-									onClick={() => onToggleCompare(car.id)}
+									onClick={() => onToggleCompare(car.id, car)}  // Pass the car data
 									className={`w-full py-3 rounded-xl font-bold transition-all ${isInCompare
-										? 'bg-toyota-red text-white'
-										: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+											? 'bg-toyota-red text-white'
+											: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
 										}`}
 								>
 									{isInCompare ? (
