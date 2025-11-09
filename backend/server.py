@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
 from utilities.data_utils import VehicleFilterRequest, filter_vehicles, load_vehicle_data
-from utilities.LLM_utils import pick_best_cars
+from utilities.LLM_utils import pick_best_cars, get_recommended_filters
 import uvicorn
 from pathlib import Path
 from dotenv import load_dotenv
