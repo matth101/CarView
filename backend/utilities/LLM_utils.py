@@ -30,13 +30,11 @@ From this list, recommend the top {top_n} cars that best match the user's prefer
 Return ONLY the exact names of the cars in a valid JSON array (e.g. ["Camry XLE", "RAV4 Hybrid", "Highlander Limited"]).
 """
 
-    gemini_key = os.environ.get("GEMINI_API_KEY")
-
     # Initialize Gemini model
-    model = genai.Client(api_key=gemini_key)
+    model = get_gemini_client()
 
     response = model.models.generate_content(
-        model=os.environ.get("GEMINI_MODEL"),
+        model=get_model_name(),
         contents=prompt,
     )
 
@@ -91,10 +89,10 @@ Only return a valid JSON object.
 """
 
     # Initialize Gemini client
-    client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
+    client = get_gemini_client()
 
     response = client.models.generate_content(
-        model=os.environ.get("GEMINI_MODEL"),
+        model=get_model_name(),
         contents=prompt
     )
 
@@ -128,3 +126,9 @@ Only return a valid JSON object.
     )
 
     return vehicle_filter
+
+def get_gemini_client():
+    return genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
+def get_model_name():
+    return os.environ.get("GEMINI_MODEL")
