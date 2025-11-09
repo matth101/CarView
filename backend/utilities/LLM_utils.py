@@ -59,8 +59,11 @@ Return ONLY the exact names of the cars in a valid JSON array (e.g. ["Camry XLE"
     car_dict = df.set_index("full_model").to_dict(orient="index")
 
     # Keep only cars Gemini returned, in the same order
-    best_matched = [car_dict[name] for name in car_names if name in car_dict]
-
+    best_matched = [
+        {"full_model": name, **car_dict[name]} 
+        for name in car_names 
+        if name in car_dict
+    ]
 
     return best_matched
 
