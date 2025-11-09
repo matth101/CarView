@@ -107,9 +107,13 @@ async def chat_with_user(websocket: WebSocket):
 
     try:
         while True:
+            print("⏳ Waiting for message...")
             data = await websocket.receive_json()
+            print(f"📨 Received data: {data}")
+            
             role = data.get("role", "user")
             message = data.get("message", "")
+            print(f"👤 Role: {role}, Message: {message}")
 
             chat_logs.append((role, message))
 
@@ -117,24 +121,32 @@ async def chat_with_user(websocket: WebSocket):
             prompt = initial_prompt + "\n"
             prompt += "\n".join([f"{r}: {m}" for r, m in chat_logs if r in ("user", "assistant")])
             prompt += "\nAssistant:"
+            
+            print(f"🤖 Sending to Gemini...")
 
-            # Streaming callback function
-            async def send_token(token: str):
-                print(token)
-                await websocket.send_json({"role": "assistant", "message": token, "stream": True})
-
-            # Use Gemini streaming API
-            async for token in gemini_client.models.generate_content_stream(
+            # Use Gemini streaming API (corrected)
+            response = gemini_client.models.generate_content(
                 model=get_model_name(),
                 contents=prompt,
-            ):
-                await send_token(token.text)
+            )
+            
+            print(f"✅ Gemini response received: {response.text[:100]}...")
 
-            # Mark end of stream
-            await websocket.send_json({"role": "assistant", "message": "", "stream": False})
+            # Send the full response
+            await websocket.send_json({
+                "role": "assistant", 
+                "message": response.text, 
+                "stream": False
+            })
+            
+            print("📤 Response sent to client")
 
     except WebSocketDisconnect:
         print("User disconnected from chat")
+    except Exception as e:
+        print(f"❌ Error in WebSocket: {e}")
+        import traceback
+        traceback.print_exc()
 
 def main():
     """Launch FastAPI server with uvicorn when run as `python server.py`."""
