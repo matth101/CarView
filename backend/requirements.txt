@@ -1,0 +1,6 @@
+selenium
+google-genai
+fastapi
+dotenv
+yaml
+uvicorn

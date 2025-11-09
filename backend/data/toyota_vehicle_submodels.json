@@ -1,0 +1,362 @@
+{
+    "Corolla LE": {
+        "msrp": 22175,
+        "description": "The base gas-sedan version of the Corolla lineup: equipped with reliable efficiency, standard safety tech (Toyota Safety Sense 3.0), an 8-inch touchscreen with wireless Apple CarPlay and Android Auto, and comfortable standard seats. It focuses on practicality and value—ideal for someone wanting a dependable everyday sedan without extra frills."
+    },
+    "Corolla SE": {
+        "msrp": 24615,
+        "description": "A sport-style upgrade over the LE: adds 18-inch alloy wheels, a gloss-black sport mesh grille, sport-tuned suspension, and sport fabric front seats. It brings more visual flair and slightly sharper handling while retaining the same efficient powertrain—perfect for those who want a bit more personality in their compact sedan."
+    },
+    "Corolla FX": {
+        "msrp": 26500,
+        "description": "A style-forward special edition built on the SE’s sporty base: features satin-black 18-inch wheels with machined accents, blacked-out roof accents or badges, sport seats with contrast stitching (for example orange), and wireless charging. The FX is targeted at buyers who prioritize aesthetic upgrades and a distinctive look, while maintaining the same core Corolla platform."
+    },
+    "Corolla XSE": {
+        "msrp": 27890,
+        "description": "The top gas-engine trim of the Corolla sedan: combines the sport attributes of the SE/FX with more premium touches—such as SofTex®-trimmed heated front seats, a power-adjustable driver seat, wireless smartphone charger, possibly a larger digital gauge display, and more refined interior materials. It is suited for buyers who want both dynamic styling and greater comfort without stepping up to the hybrid."
+    },
+    "Corolla Hybrid LE": {
+        "msrp": 23825,
+        "description": "The entry point for the hybrid version of the Corolla: delivers strong fuel economy (around 50 mpg combined) using the hybrid powertrain, while keeping the core features of the LE sedan—good tech, safety, reliability. Great choice for those whose priority is cost of ownership and fuel savings rather than high performance or premium extras."
+    },
+    "Corolla Hybrid SE": {
+        "msrp": 26265,
+        "description": "Hybrid drivetrain plus sport-oriented styling and handling upgrades: builds on the Hybrid LE’s efficiency with additional features such as sport wheels, more aggressive exterior accents, sport seats, driving-mode options (Normal/Eco/Sport). A strong compromise for drivers wanting better fuel economy paired with a tone of sportiness."
+    },
+    "Corolla Hybrid XLE": {
+        "msrp": 28190,
+        "description": "The flagship hybrid trim of the Corolla sedan line: combines the highest level of amenities (premium upholstery, heated front seats, possibly larger touchscreen, wireless charger) with hybrid efficiency. Excellent for drivers who want the environmental and economic benefits of a hybrid but also expect a fairly upscale interior and feature set."
+    },
+    "Corolla Hatchback SE": {
+        "msrp": 23505,
+        "description": "The entry hatchback variant of the Corolla: offers the same core engine and efficient economy but in a hatch-body that grants added cargo flexibility and a slightly more youthful image. Ideal for someone who values utility and style while sticking to a compact footprint."
+    },
+    "Corolla Hatchback FX": {
+        "msrp": 26805,
+        "description": "A sport-centric hatch version with visual and handling enhancements: features include satin-black 18-inch wheels, rear spoiler, blacked-out accents, sport seats with contrast stitching, and perhaps lowered stance. This trim targets buyers seeking an edgy compact car that stands out in the hatchback segment."
+    },
+    "Corolla Hatchback XSE": {
+        "msrp": 28175,
+        "description": "Top-trim hatchback variant: takes the utility of the hatch body and adds premium comfort/features—heated and trimmed front seats, higher quality materials, enhanced infotainment—and pairs it with the aggressive styling of the FX so you get both practical cargo room and a more upscale-sporty experience."
+    },
+    "Prius LE": {
+        "msrp": 28350,
+        "description": "The entry trim for the 2025 Prius hybrid hatchback: emphasizes fuel economy and practicality, with efficient hybrid powertrain, 17-inch alloy wheels, multiple USB-C ports, standard safety suite, and comfortable fabric seats. Geared toward buyers who want excellent miles‐per‐gallon and a trusted nameplate rather than luxury features."
+    },
+    "Prius XLE": {
+        "msrp": 31795,
+        "description": "Mid-level trim of the Prius lineup: in addition to LE features it adds upgrades such as heated front seats, SofTex®-trimmed steering wheel, larger wheels (19-inch on some), wireless charging, and more comfort/tech amenities. Good for one who still wants the efficiency of the Prius but also desires a more well‐equipped interior and driving experience."
+    },
+    "Prius Limited": {
+        "msrp": 35365,
+        "description": "The flagship trim of the Prius family: includes nearly all available amenities—power liftback, driver‐seat memory, heated and ventilated front seats, possibly JBL® premium audio, large touchscreen, advanced comfort features. Great pick for those who prioritize a high level of refinement in their hybrid hatch and are willing to pay more to get it."
+    },
+    "Prius Plug-in SE": {
+        "msrp": 33375,
+        "description": "The entry plug-in-hybrid version (PHEV) of the Prius: offers a short all-electric driving range plus hybrid fallback, along with many of the core Prius advantages (good tech, safety, cargo hatch). Best for drivers who can plug in occasionally and want to maximize electric‐only driving at least part of the time."
+    },
+    "Prius Plug-in XSE": {
+        "msrp": 36625,
+        "description": "The mid/high plug-in version: builds on the SE by adding more premium materials, possibly larger infotainment screen, more upscale seats and tech, while retaining the plug-in system. Perfect for someone wanting the PHEV capability plus a more refined cabin."
+    },
+    "Prius Plug-in XSE Premium": {
+        "msrp": 40070,
+        "description": "The most fully-loaded plug-in Prius: highest level of comfort, tech, and features in the Prius PHEV lineup—think upgraded upholstery, advanced infotainment/audio systems, maximum convenience options. A choice for drivers who want the best of both worlds: green driving and upscale features."
+    },
+    "Camry LE": {
+        "msrp": 28400,
+        "description": "The base trim of the all-new 2025 Camry: offers a well-rounded mid-size sedan with standard Toyota Safety Sense 3.0, Bi-LED headlights, dual‐zone climate with rear vents, an 8-inch infotainment screen, wireless CarPlay/Android Auto, and 16-inch alloy wheels. Ideal for those wanting a reliable, comfortable family sedan without stepping into premium territory. :contentReference[oaicite:0]{index=0}"
+    },
+    "Camry SE": {
+        "msrp": 30700,
+        "description": "The sport-inspired variant of the Camry lineup: adds 18-inch black‐finish alloy wheels, black sport mesh front grille, sport‐tuned suspension, SofTex® sport front seats, and an 8-inch touchscreen. It gives the Camry a more dynamic look and feel, appealing to drivers who want a bit more flair and engagement in their daily sedan. :contentReference[oaicite:1]{index=1}"
+    },
+    "Camry XLE": {
+        "msrp": 33400,
+        "description": "A luxury-oriented trim of the Camry: features include 18-inch two-tone machined/black wheels, available 12.3-inch touchscreen with JBL® premium audio, leather- and microfiber-trimmed seats, multi-stage heated front seats, dual LED projector headlights, and refined interior finishes. Tailored for buyers who want the comfort and materials of a premium sedan while staying in the Camry family. :contentReference[oaicite:2]{index=2}"
+    },
+    "Camry XSE": {
+        "msrp": 34600,
+        "description": "The top non-hybrid/standard trim of the Camry offering both sporty styling and premium features: 19-inch smoked‐gray/black wheels, 12.3-inch touchscreen and digital gauge cluster, leather-trimmed seats, sport exterior details like rear diffuser, gloss‐black spoiler, and sport mesh front grille. For buyers who want the sedan that blends performance cues, upscale tech, and daily comfort. :contentReference[oaicite:3]{index=3}"
+    },
+    "GR86 Base": {
+        "msrp": 30400,
+        "description": "The entry version of the GR86 sports coupe: rear-wheel drive, 2.4 L boxer four-cylinder engine, manual (or automatic) transmission choice, focused driver-oriented chassis—designed for enthusiasts looking for engaging handling, lightweight feel, and pure driving experience without large price premium."
+    },
+    "GR86 Premium": {
+        "msrp": 33735,
+        "description": "Builds on the base GR86 with upgraded amenities—more comfortable/leather‐trimmed seats, possibly larger wheels, enhanced interior materials and extras—but retains the same heart of the car (engine, chassis). Ideal for drivers who want sports car feel plus some daily‐driving comfort and features."
+    },
+    "GR86 Hakone Edition": {
+        "msrp": 36405,
+        "description": "A limited-edition variant of the GR86: brings exclusive aesthetic and possibly performance touches (unique wheels, upgraded brakes, bespoke interior accents) for the enthusiast/collector who wants something more distinctive. Maintains the same exhilarating driving dynamics of the GR86 platform."
+    },
+    "GR Corolla Core": {
+        "msrp": 39160,
+        "description": "The entry high-performance hatch of the GR Corolla lineup: powered by a 1.6 L turbo three-cylinder, 300 hp, standard all-wheel drive, aggressive suspension and chassis tuning—delivers compact performance far beyond the regular Corolla. Great for drivers seeking genuine performance in a relatively compact package."
+    },
+    "GR Corolla Premium": {
+        "msrp": 41440,
+        "description": "Steps up the GR Corolla performance lineup with additional comfort and tech: includes more refined interior materials, maybe upgraded audio/infotainment, extra driver‐assist or connectivity features, while maintaining the same high-output drivetrain and AWD performance. Excellent for tuned performance with more creature comforts."
+    },
+    "GR Corolla Premium Plus": {
+        "msrp": 45515,
+        "description": "The top trim in the GR Corolla hatch series: highest specification including possibly track-derived components (upgraded suspension, brakes), exclusive styling, premium interior trim and the full performance package. Targeted at true enthusiasts who demand top-tier compact performance."
+    },
+    "GR Supra 3.0": {
+        "msrp": 56250,
+        "description": "The flagship sports coupe from Toyota’s Gazoo Racing division (GR Supra): powered by a 3.0 L turbocharged inline-six, rear-wheel drive, high performance chassis, premium features and distinctive styling. Designed for drivers who want serious sports-car performance, sharp handling, and dynamic character—more than just a commuter car."
+    },
+    "Sienna LE": {
+        "msrp": 39185,
+        "description": "The entry trim of the 2025 Sienna minivan: powered by Toyota’s hybrid drivetrain, available with 7 or 8-passenger seating, and standard front-wheel drive (AWD optional). It delivers strong family-utility credentials with sliding doors, a flexible interior, modern infotainment and safety suite, making it a great choice for families prioritising space, versatility and efficiency."
+    },
+    "Sienna XLE": {
+        "msrp": 43995,
+        "description": "Mid-level trim of the Sienna: builds on the LE by adding premium convenience features (such as larger touchscreen, upgraded upholstery, optional second-row captain’s chairs, more advanced driver‐assist features) while retaining the hybrid AWD capability. Ideal for those who need the minivan practicality but want a more refined cabin feel."
+    },
+    "Sienna XSE": {
+        "msrp": 46640,
+        "description": "Sport-oriented variant of the Sienna: adds more aggressive styling cues, possibly larger wheels, sport-tuned suspension or interior accents, while maintaining the family-friendly attributes (three-row seating, sliding doors, hybrid powertrain). Great for drivers who want a minivan with a little extra dynamic feel."
+    },
+    "Sienna Woodland Edition": {
+        "msrp": 50425,
+        "description": "Adventure-themed trim of the Sienna: likely features rugged styling, exclusive exterior colours/accents, roof rails/gear-carry capability, AWD standard, and optional off-road friendly features. Suited for active families who want the minivan format but venture beyond suburban errands."
+    },
+    "Sienna Limited": {
+        "msrp": 50200,
+        "description": "A luxury-oriented Sienna trim: brings in high-end comforts such as leather seating, premium audio, enhanced rear-seat amenities, possibly fridge or vacuum accessories, and advanced driver assists. For those who view their minivan as more than a basic people-hauler."
+    },
+    "Sienna Platinum": {
+        "msrp": 56145,
+        "description": "Top-tier trim of the Sienna lineup: loads of luxury and convenience features (heated/ventilated seats, premium interior materials, panoramic roof, premium audio, possibly unique styling packages). The hybrid powertrain and optional AWD remain under the hood while the cabin elevates to near-premium SUV level."
+    },
+    "bZ4X LE": {
+        "msrp": 42000,
+        "description": "The entry-level bZ4X electric crossover: efficient, comfortable, with standard safety and infotainment features."
+    },
+    "bZ4X XLE": {
+        "msrp": 45000,
+        "description": "Mid-trim bZ4X offering upgraded comfort, tech, and interior features for enhanced convenience and style."
+    },
+    "bZ4X Limited": {
+        "msrp": 48000,
+        "description": "Top-tier bZ4X with full luxury, advanced technology, premium interior, and additional performance features."
+    },
+    "Sequoia SR5": {
+        "msrp": 62175,
+        "description": "The base trim of the 2025 Sequoia: standard hybrid powertrain (i‑FORCE MAX), spacious three‑row seating, strong towing capability, and a well‑rounded family SUV without premium frills."
+    },
+    "Sequoia Limited": {
+        "msrp": 68575,
+        "description": "Mid‑trim Sequoia: adds more comfort and convenience features such as SofTex®‑trimmed seats, larger infotainment screen, and premium wheel/styling upgrades—great for families wanting a step up in refinement."
+    },
+    "Sequoia Platinum": {
+        "msrp": 79320,
+        "description": "Luxury‑oriented version of the Sequoia: includes upgraded interior materials, massaging front seats, panoramic roof, advanced audio system and premium finishes—ideal for buyers looking for near‑premium SUV experience in a full‑size body."
+    },
+    "Sequoia 1794 Edition": {
+        "msrp": 80135,
+        "description": "Western‑themed special edition of the Sequoia: unique styling cues (e.g., Saddle Tan interior, wood‑grain trim), premium features, and full sized SUV utility—targeted at buyers who want luxury plus distinctive styling."
+    },
+    "Sequoia TRD Pro": {
+        "msrp": 80045,
+        "description": "Off‑road‑tuned Sequoia: built for rugged terrain with TRD suspension, off‑road hardware, rugged styling and the same hybrid powertrain—excellent for drivers who need full‑size space plus true off‑road capability."
+    },
+    "Sequoia Capstone": {
+        "msrp": 83665,
+        "description": "Flagship trim of the Sequoia: maximum luxury, technology, and unique design elements (e.g., semi‑aniline leather seats, premium finishes, large wheels) paired with the large SUV capability—perfect for buyers wanting the top of the line."
+    },
+    "Tacoma SR": {
+        "msrp": 31590,
+        "description": "Base trim of the 2025 Tacoma pickup: purpose-built for durability and utility, featuring Toyota’s i-FORCE 2.4L turbocharged engine, standard features enough for work or weekend use, and a straightforward cabin. Ideal for someone wanting a capable midsize truck without premium frills."
+    },
+    "Tacoma SR5": {
+        "msrp": 36220,
+        "description": "A popular mid-trim Tacoma: adds convenience features and comfort upgrades (larger infotainment, more creature comforts), while retaining off-road or work capability. A balanced choice for buyers wanting more than the base truck while staying within practical budget."
+    },
+    "Tacoma TRD PreRunner": {
+        "msrp": 38120,
+        "description": "PreRunner version of the Tacoma: designed to deliver the truck’s off-road appearance and some components (suspension, styling) but in a 2-wheel-drive layout (depending on config), making it an option for buyers who like the TRD look & feel without full 4WD cost or fuel penalty."
+    },
+    "Tacoma TRD Sport": {
+        "msrp": 39400,
+        "description": "Sport-oriented version of the Tacoma: upgrades include sport suspension or styling, 4WD optional, larger wheels, and features oriented toward the enthusiast who sometimes uses the truck for play rather than purely for work."
+    },
+    "Tacoma TRD Off-Road": {
+        "msrp": 41800,
+        "description": "Truck built for off-road capability: includes features such as enhanced suspension, all-terrain tires, underbody protection, possibly locking differential or multi-terrain modes. Perfect for drivers who need a pickup that will handle rough trails, not just smooth roads."
+    },
+    "Tacoma Limited": {
+        "msrp": 52555,
+        "description": "Top trim of the Tacoma lineup: combines full truck utility with premium features—upgraded interior (leather seats, larger infotainment screen), advanced safety/driver-assist systems, and refined finishing. For buyers who want the pickup form factor without sacrificing comfort."
+    },
+    "Tundra SR": {
+        "msrp": 40090,
+        "description": "The base model of the 2025 Tundra full-size pickup: comes with Toyota’s durable platform, capable engine options, standard features essential for a full-size truck. A solid choice for buyers needing size and capability but willing to forgo upscale extras."
+    },
+    "Tundra SR5": {
+        "msrp": 45960,
+        "description": "Mid-level Tundra trim adding more convenience and comfort: upgrades such as power seats, nicer wheels, more driver technologies, while maintaining the heavy-duty truck utility. Great for those using the truck for both daily driving and heavier tasks."
+    },
+    "Tundra Limited": {
+        "msrp": 54305,
+        "description": "Luxury-oriented full-size truck trim: brings in premium interior materials, advanced infotainment, driver assistance features, and more refined ride dynamics. Ideal for buyers wanting a full-size truck that also serves as a comfortable everyday vehicle."
+    },
+    "Tundra Platinum": {
+        "msrp": 63675,
+        "description": "High-end full-size pickup trim: features include leather/massaging seats, panoramic roof, large touchscreen/digital instrument cluster, advanced suspension options like adaptive air ride, and refined styling—combining truck capability with near-SUV comfort."
+    },
+    "Tundra 1794 Edition": {
+        "msrp": 64360,
+        "description": "Western-themed premium trim of the Tundra: unique styling cues, special interior finishes (wood accents, special upholstery), premium amenities, and full size truck performance. For buyers who want premium looks + truck capability."
+    },
+    "Tundra Limited i-FORCE MAX": {
+        "msrp": 58005,
+        "description": "Electrified version of the Tundra: pairs Toyota’s i-FORCE MAX hybrid powertrain (gas + electric motor) with the Limited trim’s comfort/features. This version gives improved performance/efficiency while retaining full-size truck utility—good for buyers wanting more modern powertrain in a big truck."
+    },
+    "Tundra Platinum i-FORCE MAX": {
+        "msrp": 67585,
+        "description": "Top-tier electrified Tundra trim: combines the hybrid powertrain with the highest comfort and tech features of the Platinum trim—massaging seats, premium interior, advanced tech and charging/efficiency benefits. For buyers wanting premium truck + latest powertrain."
+    },
+    "Tundra Capstone": {
+        "msrp": 80725,
+        "description": "Flagship version of the Tundra lineup: blends maximum capability (truck bed, tow/haul systems), premium materials, advanced tech, electified powertrain options, and exclusive styling. For buyers who want the ultimate full-size Toyota truck."
+    },
+    "Corolla Cross L": {
+        "msrp": 24035,
+        "description": "Base trim of the Corolla Cross compact crossover: standard 2.0-liter four-cylinder engine, Toyota Safety Sense 3.0, 8-inch (or 7-inch) infotainment, wireless Apple CarPlay/Android Auto, flexible cargo space. A value-oriented choice for those entering the crossover segment."
+    },
+    "Corolla Cross LE": {
+        "msrp": 26365,
+        "description": "Adds features over the L trim: larger touchscreen, blind-spot monitor with rear cross-traffic alert, smart key system, and more comfort amenities—ideal for those who want a little more tech and convenience in their compact crossover."
+    },
+    "Corolla Cross XLE": {
+        "msrp": 28260,
+        "description": "Top gasoline-engine trim of the Corolla Cross: includes options like SofTex®-trimmed front seats, power driver’s seat with lumbar support, front/rear parking assist with automatic braking, premium wheels—well-suited for buyers wanting comfort and extras in a compact SUV."
+    },
+    "Corolla Cross Hybrid S": {
+        "msrp": 28395,
+        "description": "Entry trim for the Hybrid version of the Corolla Cross: delivers real fuel-efficiency improvements while keeping crossover practicality. Suitable for drivers with commuting needs who also value lower fuel consumption."
+    },
+    "Corolla Cross Hybrid SE": {
+        "msrp": 29715,
+        "description": "Hybrid variant with added convenience and style over the S: might include larger wheels, some upgraded interior or exterior accents, while keeping the hybrid powertrain. Good balance of efficiency + value."
+    },
+    "Corolla Cross Hybrid Nightshade": {
+        "msrp": 30640,
+        "description": "Styling-special hybrid crossover: blacked-out accents, unique wheels, hybrid efficiency—aimed at buyers wanting both standout looks and fuel savings."
+    },
+    "Corolla Cross Hybrid XSE": {
+        "msrp": 31580,
+        "description": "Top hybrid trim of the Corolla Cross lineup: adds premium seats (heated, SofTex®), larger wheels (19-inch), sport-tuned suspension, the hybrid powertrain and full crossover versatility—good for someone who wants the most from this size class."
+    },
+    "Toyota Crown XLE": {
+        "msrp": 41440,
+        "description": "The entry trim of the 2025 Toyota Crown sedan: standard all-wheel drive, a hybrid powertrain, upscale styling compared to Toyota’s mainstream sedans, and the full suite of Toyota Safety Sense. Offers an elevated everyday driving experience combining comfort, refinement and efficiency."
+    },
+    "Toyota Crown Limited": {
+        "msrp": 45950,
+        "description": "A step up from the XLE for the Crown: brings in premium cabin amenities (higher quality materials, advanced audio, upgraded seats), more luxury features and touches—ideal for buyers who want near-luxury sedan feel without moving to a luxury brand."
+    },
+    "Toyota Crown Nightshade": {
+        "msrp": 48765,
+        "description": "Styling-special edition of the Crown: builds on the Limited’s luxury features with dark exterior accents (black wheels, black trim/badging), unique interior details. For those who want a more distinctive look while retaining the Crown’s premium comfort and AWD hybrid drivetrain."
+    },
+    "Toyota Crown Platinum": {
+        "msrp": 54990,
+        "description": "Top-trim Crown: the fullest expression of refinement in this model line—premium interior finishes, advanced driver assist and infotainment features, possibly more power or unique options. A choice for buyers seeking maximum luxury and features in a Toyota sedan."
+    },
+    "RAV4 LE": {
+        "msrp": 28850,
+        "description": "The base version of the 2025 RAV4 compact crossover: includes the essential features for daily family or commuter use—2.5-L 4-cyl engine, decent cargo space, good tech and safety features at a value price. Excellent start point for crossover buyers."
+    },
+    "RAV4 XLE": {
+        "msrp": 30360,
+        "description": "Mid-trimRAV4: adds nicer interior trim, more convenience features (like larger infotainment screen, more comfort options), possibly upgraded wheels and styling. Well suited for someone wanting more than basics but staying within practicality."
+    },
+    "RAV4 XLE Premium": {
+        "msrp": 33250,
+        "description": "Higher-tierRAV4: brings premium touches such as larger wheels, more refined interior materials, possibly power liftgate, upgraded audio and comfort amenities—bridges mainstream crossover utility with near-premium feel."
+    },
+    "RAV4 Limited": {
+        "msrp": 37155,
+        "description": "Top regular gasRAV4 trim: includes the full suite of features available in theRAV4 gas version—leather or SofTex seating, advanced driver-assist systems, premium audio, larger display, upscale finishes. Ideal for crossover buyers who value comfort and tech."
+    },
+    "RAV4 Hybrid LE": {
+        "msrp": 32600,
+        "description": "The hybrid version of theRAV4, entry trim: retains crossover practicality with improved fuel efficiency via hybrid drivetrain. A great match for buyers wanting an SUV‐style package but prioritizing fuel savings and everyday versatility."
+    },
+    "Highlander LE": {
+        "msrp": 41315,
+        "description": "Base trim of the 2025 Highlander midsize three‐row SUV: seats up to eight, ample cargo space, standard safety and infotainment tech, turbo 2.4L four-cyl engine. Good for families needing more space than a compact crossover."
+    },
+    "Highlander XLE": {
+        "msrp": 44965,
+        "description": "Mid-trim Highlander: adds upgraded interior materials, more comfort options, possibly second‐row captain’s chairs, more advanced tech and better styling—aimed at families who use the third row but want more refinement."
+    },
+    "Highlander XSE": {
+        "msrp": 48635,
+        "description": "Sport‐oriented version of the Highlander: features include sport styled exterior (wheels, body kit), sport tuned suspension or drive features, premium cabin upgrades—all while maintaining the three-row utility of the Highlander."
+    },
+    "Highlander Limited": {
+        "msrp": 49070,
+        "description": "Luxury trim of the Highlander: brings high-end amenities like leather seats, advanced audio, panoramic roof, powered third row and premium finishes—targeted at buyers wanting full size SUV capacity with upscale features."
+    },
+    "Highlander Platinum": {
+        "msrp": 54220,
+        "description": "Top-trim Highlander: maximum comfort, technology and premium materials; includes features like ventilated and heated seats across rows, advanced suspension, ambient interior lighting, possibly exclusive styling—great for those wanting near luxury three‐row SUV."
+    },
+    "Grand Highlander Base": {
+        "msrp": 43630,
+        "description": "The entry trim of the 2025 Grand Highlander: larger footprint (8-passenger seating standard or optional), generous cargo and third‐row room, 12.3-inch infotainment, bench seating option for eight. Ideal for larger families needing more space and tech at a moderate price point."
+    },
+    "Grand Highlander Limited": {
+        "msrp": 48860,
+        "description": "Mid- to high-trim Grand Highlander: upgrades in wheel size (20-inch), digital gauge cluster, refined interior finishes and more advanced features while retaining seating for up to eight—strong for families who need space and value premium touches."
+    },
+    "Grand Highlander Platinum": {
+        "msrp": 54545,
+        "description": "Top trim for the Grand Highlander: maximum space (8 seats), premium interior materials, advanced technology, 20-inch wheels, LED lighting and upscale cabin. For buyers who want the full three-row SUV experience with high-end finishes."
+    },
+    "Grand Highlander Hybrid Limited": {
+        "msrp": 52210,
+        "description": "Hybrid version of the Grand Highlander in Limited trim: combines the large-SUV space and third row seating with a hybrid drivetrain (higher mpg), while offering premium features and comfort—ideal for large families concerned about efficiency and comfort."
+    },
+    "Grand Highlander Hybrid Nightshade": {
+        "msrp": 53190,
+        "description": "Hybrid trim with styling specialty (Nightshade): builds on the Hybrid Limited with darked-out styling accents (black wheels, black trim), premium interior and large SUV space—great blend of size, efficiency, and distinct aesthetics."
+    },
+    "Toyota Crown Signia XLE": {
+        "msrp": 44090,
+        "description": "The base trim for the 2025 Toyota Crown Signia, a new hybrid wagon-crossover combining upscale design, all-wheel drive standard, and a refined cabin. It uses a 2.5 L four-cylinder paired with electric motors for a combined 240 hp and offers around 39 mpg city / 37 mpg highway. :contentReference[oaicite:0]{index=0} This version gives the driver premium feel—higher-end materials, a more sophisticated look than typical Toyota crossovers—while maintaining practicality for five passengers and a strong value at this entry price."
+    },
+    "Toyota Crown Signia Limited": {
+        "msrp": 49485,
+        "description": "The higher trim of the Crown Signia line: adds premium touches such as a panoramic roof, larger wheels, upgraded infotainment/audio system, possibly ventilated front seats and more upscale interior finish. :contentReference[oaicite:1]{index=1} Aimed at buyers who want near‐luxury comfort but still within the Toyota ecosystem, retaining the same hybrid AWD drivetrain and five-seat configuration."
+    },
+    "Land Cruiser 1958": {
+        "msrp": 56700,
+        "description": "The base trim of the 2025 Land Cruiser revival: styled with retro nods to the original 1958 model (round headlights, retro design cues), built with the modern 2.4 L turbo-hybrid engine, 4-wheel drive capability, and rugged expedition-capable frame. :contentReference[oaicite:2]{index=2} Ideal for buyers seeking serious off-road capability and heritage styling, this version makes no major luxury compromises but retains premium capability."
+    },
+    "Land Cruiser": {
+        "msrp": 62450,
+        "description": "The standard trim of the 2025 Land Cruiser: builds on the base 1958 with additional comfort, tech, and styling upgrades—larger touchscreen, leather or SofTex seating, more premium audio and advanced driver assists. :contentReference[oaicite:3]{index=3} Targeted at buyers who want the full Land Cruiser capability (including off-road hardware and 4WD) but also desire elevated interior comfort for everyday use."
+    },
+    "Tundra i-FORCE MAX Limited": {
+        "msrp": 58005,
+        "description": "The entry trim of the hybrid i-FORCE MAX version of the 2025 Tundra full-size truck: combines the 437-hp 3.4 L twin-turbo V6 hybrid powertrain with the utility of a full-size pickup (bed, towing capacity, etc.). :contentReference[oaicite:4]{index=4} A strong choice for buyers who need truck capability but want a more modern powertrain and refined interior than traditional work-truck baselines."
+    },
+    "Tundra i-FORCE MAX Platinum": {
+        "msrp": 67585,
+        "description": "A higher-end variant of the i-FORCE MAX Tundra: includes premium materials, advanced infotainment, upgraded suspension options, possibly adaptive air ride, massaging seats, and full-size truck capability. :contentReference[oaicite:5]{index=5} Designed for customers who demand full-sized truck utility (towing/hauling) but also want near-luxury comfort."
+    },
+    "Tacoma i-FORCE MAX TRD Sport": {
+        "msrp": 46720,
+        "description": "The entry performance hybrid version of the 2025 Tacoma midsize truck: uses the i-FORCE MAX 2.4 L turbo hybrid powertrain (~278 hp), an 8-speed automatic, and upgrades like a sport-tuned suspension, 18-inch TRD alloy wheels, and advanced infotainment cluster. :contentReference[oaicite:6]{index=6} Ideal for buyers who want the midsize truck utility (bed, off-road capability) combined with modern hybrid performance and sporty styling."
+    },
+    "Tacoma i-FORCE MAX Limited": {
+        "msrp": 60228,
+        "description": "A premium version of the hybrid Tacoma: retains the same drivetrain as above but adds leather or SofTex seating, larger screen, premium audio, more truck-friendly tech and comforts, and likely enhanced off-road or luxury capabilities. :contentReference[oaicite:7]{index=7} A fit for buyers who use their truck both for work/play and as a daily driver with higher comfort expectations."
+    }
+}

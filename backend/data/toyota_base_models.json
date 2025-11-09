@@ -1,0 +1,212 @@
+{
+    "Corolla": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 36
+        },
+        "seating": 5
+    },
+    "Corolla Hybrid": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 50
+        },
+        "seating": 5
+    },
+    "Corolla Hatchback": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 35
+        },
+        "seating": 5
+    },
+    "Prius": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 52
+        },
+        "seating": 5
+    },
+    "Prius Plug-in Hybrid": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 54
+        },
+        "seating": 5
+    },
+    "Camry": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 32
+        },
+        "seating": 5
+    },
+    "GR86": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 24
+        },
+        "seating": 4
+    },
+    "GR Corolla": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 29
+        },
+        "seating": 5
+    },
+    "GR Supra": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 25
+        },
+        "seating": 2
+    },
+    "Toyota Crown": {
+        "category": "Car",
+        "mpg_estimated": {
+            "combined": 28
+        },
+        "seating": 5
+    },
+    "Sienna": {
+        "category": "Minivan",
+        "mpg_estimated": {
+            "combined": 36
+        },
+        "seating": 7
+    },
+    "Tacoma": {
+        "category": "Truck",
+        "mpg_estimated": {
+            "combined": 21
+        },
+        "seating": 5
+    },
+    "Tundra": {
+        "category": "Truck",
+        "mpg_estimated": {
+            "combined": 20
+        },
+        "seating": 5
+    },
+    "Corolla Cross": {
+        "category": "Crossover",
+        "mpg_estimated": {
+            "combined": 32
+        },
+        "seating": 5
+    },
+    "Corolla Cross Hybrid": {
+        "category": "Crossover",
+        "mpg_estimated": {
+            "combined": 42
+        },
+        "seating": 5
+    },
+    "RAV4": {
+        "category": "Crossover",
+        "mpg_estimated": {
+            "combined": 30
+        },
+        "seating": 5
+    },
+    "RAV4 Hybrid": {
+        "category": "Crossover",
+        "mpg_estimated": {
+            "combined": 40
+        },
+        "seating": 5
+    },
+    "RAV4 Plug-in Hybrid": {
+        "category": "Crossover",
+        "mpg_estimated": {
+            "combined": 38
+        },
+        "seating": 5
+    },
+    "bZ": {
+        "category": "Crossover/EV",
+        "mpg_estimated": {
+            "combined": 90
+        },
+        "seating": 5
+    },
+    "Highlander": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 24
+        },
+        "seating": 8
+    },
+    "Highlander Hybrid": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 36
+        },
+        "seating": 8
+    },
+    "Grand Highlander": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 23
+        },
+        "seating": 8
+    },
+    "Grand Highlander Hybrid": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 35
+        },
+        "seating": 8
+    },
+    "4Runner": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 20
+        },
+        "seating": 5
+    },
+    "4Runner i-FORCE MAX": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 19
+        },
+        "seating": 5
+    },
+    "Toyota Crown Signia": {
+        "category": "Crossover",
+        "mpg_estimated": {
+            "combined": 28
+        },
+        "seating": 5
+    },
+    "Land Cruiser": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 18
+        },
+        "seating": 7
+    },
+    "Sequoia": {
+        "category": "SUV",
+        "mpg_estimated": {
+            "combined": 18
+        },
+        "seating": 8
+    },
+    "Tundra i-FORCE MAX": {
+        "category": "Truck",
+        "mpg_estimated": {
+            "combined": 22
+        },
+        "seating": 5
+    },
+    "Tacoma i-FORCE MAX": {
+        "category": "Truck",
+        "mpg_estimated": {
+            "combined": 23
+        },
+        "seating": 5
+    }
+}
