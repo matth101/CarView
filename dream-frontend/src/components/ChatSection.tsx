@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Send, Sparkles } from 'lucide-react';
+import { Send, Sparkles, Wand2 } from 'lucide-react';
 import { useState } from 'react';
 
 interface Message {
@@ -7,7 +7,11 @@ interface Message {
   isUser: boolean;
 }
 
-const ChatSection = () => {
+interface ChatSectionProps {
+  onBuildPreferences: (conversation: [number, string][]) => void;
+}
+
+const ChatSection = ({ onBuildPreferences }: ChatSectionProps) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       text: "Hi! I'm your Toyota assistant. I can help you find the perfect vehicle based on your lifestyle and needs.",
@@ -15,6 +19,7 @@ const ChatSection = () => {
     },
   ]);
   const [input, setInput] = useState('');
+  const [isBuilding, setIsBuilding] = useState(false);
 
   const sendMessage = () => {
     if (!input.trim()) return;
@@ -31,6 +36,24 @@ const ChatSection = () => {
         },
       ]);
     }, 1000);
+  };
+
+  const handleBuildPreferences = async () => {
+	setIsBuilding(true);
+	
+	// Convert messages to tuple format: 0 = user, 1 = assistant
+	const conversation: [number, string][] = messages.map(msg => [
+	  msg.isUser ? 0 : 1,
+	  msg.text
+	]);
+  
+	console.log('💬 Chat conversation being sent:', conversation);
+  
+	// Simulate API delay
+	setTimeout(() => {
+	  onBuildPreferences(conversation);
+	  setIsBuilding(false);
+	}, 500);
   };
 
   return (
@@ -72,6 +95,24 @@ const ChatSection = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Build Preferences Button */}
+      {messages.length > 2 && (
+        <div className="px-6 pb-4">
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleBuildPreferences}
+            disabled={isBuilding}
+            className="w-full bg-black text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors disabled:opacity-50"
+          >
+            <Wand2 size={18} />
+            {isBuilding ? 'Building...' : 'Build User Preferences'}
+          </motion.button>
+        </div>
+      )}
 
       {/* Input */}
       <div className="p-6 border-t border-gray-200 bg-white">

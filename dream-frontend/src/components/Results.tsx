@@ -3,9 +3,11 @@ import { Heart, Check } from 'lucide-react';
 import { useState } from 'react';
 
 interface ResultsSectionProps {
-  compareList: Set<number>;
-  onToggleCompare: (id: number) => void;
-}
+	recommendations: any[];
+	compareList: Set<number>;
+	onToggleCompare: (id: number) => void;
+  }
+  
 
 const curatedCars = [
   {
@@ -37,20 +39,31 @@ const curatedCars = [
   },
 ];
 
-const ResultsSection = ({ compareList, onToggleCompare }: ResultsSectionProps) => {
-  const [favorites, setFavorites] = useState<Set<number>>(new Set());
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  const toggleFavorite = (id: number, e: React.MouseEvent) => {
-    e.stopPropagation();
-    const newFavorites = new Set(favorites);
-    if (newFavorites.has(id)) {
-      newFavorites.delete(id);
-    } else {
-      newFavorites.add(id);
-    }
-    setFavorites(newFavorites);
-  };
+const ResultsSection = ({ recommendations, compareList, onToggleCompare }: ResultsSectionProps) => {
+	const [favorites, setFavorites] = useState<Set<number>>(new Set());
+	const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  
+	// Use recommendations from backend, fallback to empty
+	const cars = recommendations.length > 0 ? recommendations.map((car, idx) => ({
+	  id: idx + 1,
+	  name: car.full_model || car.name || 'Unknown',
+	  tagline: car.description || 'No description available',
+	  price: car.msrp || 0,
+	  mpg: car.mpg_combined || 0,
+	  matchScore: 95,
+	  image: car.image || 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
+	})) : [];
+  
+	const toggleFavorite = (id: number, e: React.MouseEvent) => {
+	  e.stopPropagation();
+	  const newFavorites = new Set(favorites);
+	  if (newFavorites.has(id)) {
+		newFavorites.delete(id);
+	  } else {
+		newFavorites.add(id);
+	  }
+	  setFavorites(newFavorites);
+	};
 
   return (
     <div>

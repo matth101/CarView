@@ -18,14 +18,13 @@ interface FilterPanelProps {
 }
 
 const vehicleTypes = [
-  { id: 'sedan', label: 'Sedan', icon: Car },
-  { id: 'cars', label: 'Cars', icon: Car },
-  { id: 'suv', label: 'SUVs', icon: Truck },
-  { id: 'crossover', label: 'Crossovers', icon: Boxes },
-  { id: 'truck', label: 'Trucks', icon: Truck },
-  { id: 'minivan', label: 'Minivan', icon: Baby },
-  { id: 'electrified', label: 'Electrified', icon: Zap },
-];
+	{ id: 'Car', label: 'Car', icon: Car },
+	{ id: 'SUV', label: 'SUV', icon: Car },
+	{ id: 'Crossover', label: 'Crossover', icon: Boxes },
+	{ id: 'Truck', label: 'Truck', icon: Truck },
+	{ id: 'Minivan', label: 'Minivan', icon: Baby },
+	{ id: 'EV', label: 'EV', icon: Zap },
+  ];
 
 const seatingOptions = [4, 5, 6, 7, 8];
 

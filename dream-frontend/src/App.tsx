@@ -1,21 +1,17 @@
-import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import DreamBuilder from './components/DreamBuilder';
+import ComparePage from './components/ComparePage';
 
 function App() {
-  const [showBuilder, setShowBuilder] = useState(false);
-
   return (
-    <div className="min-h-screen bg-white">
-      <AnimatePresence mode="wait">
-        {!showBuilder ? (
-          <LandingPage key="landing" onStart={() => setShowBuilder(true)} />
-        ) : (
-          <DreamBuilder key="builder" />
-        )}
-      </AnimatePresence>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/builder" element={<DreamBuilder />} />
+        <Route path="/compare" element={<ComparePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
