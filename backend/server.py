@@ -10,6 +10,8 @@ from dotenv import load_dotenv
 from typing import List, Tuple
 from google import genai
 from pydantic import BaseModel
+import asyncio 
+
 
 
 load_dotenv(dotenv_path="./dev.env")
@@ -45,7 +47,7 @@ def get_vehicle_by_model(full_model: str):
 @app.post("/recommend_cars")
 def recommend_cars(
     filters: VehicleFilterRequest,
-    top_n: int = Query(5, description="Number of cars to recommend")
+    top_n: int = Query(9, description="Number of cars to recommend")
 ):
     print(" Received filter request:", filters.dict())
     
@@ -129,17 +131,30 @@ async def chat_with_user(websocket: WebSocket):
                 model=get_model_name(),
                 contents=prompt,
             )
-            
-            print(f"✅ Gemini response received: {response.text[:100]}...")
+            # For now, simulate streaming by splitting the response
+            full_text = response.text
+            print(f"✅ Full response: {full_text[:50]}...")
 
-            # Send the full response
+            # Split into words and stream them
+            words = full_text.split()
+            for i, word in enumerate(words):
+                chunk = word + " "
+                await websocket.send_json({
+                    "role": "assistant",
+                    "message": chunk,
+                    "stream": True
+                })
+                # Small delay for smooth streaming effect
+                await asyncio.sleep(0.03)
+
+            # Send end of stream
             await websocket.send_json({
-                "role": "assistant", 
-                "message": response.text, 
+                "role": "assistant",
+                "message": "",
                 "stream": False
             })
-            
-            print("📤 Response sent to client")
+
+            print("📤 Streaming complete")
 
     except WebSocketDisconnect:
         print("User disconnected from chat")

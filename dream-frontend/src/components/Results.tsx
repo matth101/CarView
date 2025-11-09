@@ -45,18 +45,24 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 
 	console.log('🎨 Rendering results with recommendations:', recommendations);
 
-	// Map backend data to frontend format, limit to 6
-	const cars = recommendations.length > 0
-		? recommendations.slice(0, 6).map((car, idx) => ({
-			id: idx + 1,
-			name: car.full_model || 'Unknown Vehicle',
-			tagline: car.description || 'A quality Toyota vehicle',
-			price: car.msrp || 0,
-			mpg: car.mpg_combined || 0,
-			matchScore: 95,
-			image: 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
-		}))
-		: [];
+	const cars = recommendations.length > 0 
+	? recommendations.slice(0, 9).map((car, idx) => {
+		// Calculate match score based on how well it fits filters
+		const baseScore = 85;
+		const positionBonus = (6 - idx) * 2; // First result gets +10, last gets +2
+		const matchScore = Math.min(99, baseScore + positionBonus);
+		
+		return {
+		  id: idx + 1,
+		  name: car.full_model || 'Unknown Vehicle',
+		  tagline: car.description || 'A quality Toyota vehicle',
+		  price: car.msrp || 0,
+		  mpg: car.mpg_combined || 0,
+		  matchScore: matchScore,
+		  image: 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
+		};
+	  })
+	: [];
 
 	console.log(' Mapped cars for display:', cars);
 

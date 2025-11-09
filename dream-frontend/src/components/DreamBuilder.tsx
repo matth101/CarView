@@ -26,6 +26,13 @@ const DreamBuilder = () => {
 	const [recommendations, setRecommendations] = useState<any[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 
+	const [budgetData, setBudgetData] = useState({
+		income: '',
+		expenses: '',
+		cash: '',
+		creditScore: 'Excellent (750+)'
+	});
+
 	// Show button if ANY change from default
 	const hasAnyChange =
 		filters.vehicleTypes.size > 0 ||
@@ -221,7 +228,9 @@ const DreamBuilder = () => {
 			<BudgetDialog
 				isOpen={showBudgetDialog}
 				onClose={() => setShowBudgetDialog(false)}
-				onSave={() => {
+				budgetData={budgetData}  // Pass current values
+				onSave={(data) => {
+					setBudgetData(data);  // Store the values
 					setHasBudget(true);
 					setShowBudgetDialog(false);
 				}}
