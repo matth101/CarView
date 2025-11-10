@@ -3,6 +3,12 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header';
 import { Check, X } from 'lucide-react';
 
+// Helper function to get the correct image path
+const getCarImage = (fullModel: string) => {
+	const cleanModel = fullModel.trim();
+	return `/toyota_vehicle_images/${cleanModel}.png`;
+};
+
 const ComparePage = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -13,14 +19,12 @@ const ComparePage = () => {
 
 	const handleBack = () => {
 		if (fromResults) {
-			// Go back to results, not filter page
 			navigate('/builder', { state: { showResults: true } });
 		} else {
 			navigate(-1);
 		}
 	};
 
-	// If no vehicles to compare, show empty state
 	if (vehicles.length === 0) {
 		return (
 			<div className="min-h-screen bg-white">
@@ -79,7 +83,6 @@ const ComparePage = () => {
 			<Header />
 
 			<div className="max-w-7xl mx-auto px-8 py-16">
-				{/* Title with accent */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -94,7 +97,6 @@ const ComparePage = () => {
 					</p>
 				</motion.div>
 
-				{/* Vehicle Cards */}
 				<div className={`grid grid-cols-1 ${vehicles.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-8 mb-12`}>
 					{vehicles.map((vehicle: any, idx: number) => (
 						<motion.div
@@ -104,7 +106,6 @@ const ComparePage = () => {
 							transition={{ delay: idx * 0.1 }}
 							className="relative"
 						>
-							{/* Winner Badge */}
 							{idx === 0 && vehicles.length > 1 && (
 								<div className="absolute -top-3 -right-3 bg-toyota-red text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
 									Best Match
@@ -114,9 +115,12 @@ const ComparePage = () => {
 							<div className="border-2 border-gray-200 rounded-3xl overflow-hidden hover:border-toyota-red transition-colors">
 								<div className="bg-gray-50 p-6">
 									<img
-										src={vehicle.image || 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=400&q=80'}
+										src={vehicle.image || getCarImage(vehicle.name)}
 										alt={vehicle.name}
 										className="w-full h-48 object-cover rounded-2xl"
+										onError={(e) => {
+											(e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=400&q=80';
+										}}
 									/>
 								</div>
 								<div className="p-6 text-center">
@@ -133,7 +137,6 @@ const ComparePage = () => {
 					))}
 				</div>
 
-				{/* Specs Comparison Table */}
 				<div className="bg-gray-50 rounded-3xl p-8">
 					<h3 className="text-2xl font-black mb-8 flex items-center gap-3">
 						<div className="w-2 h-8 bg-toyota-red rounded-full" />
@@ -148,12 +151,10 @@ const ComparePage = () => {
 							transition={{ delay: 0.3 + specIdx * 0.05 }}
 							className={`grid grid-cols-1 ${vehicles.length === 2 ? 'md:grid-cols-3' : 'md:grid-cols-4'} gap-6 py-6 border-b border-gray-200 last:border-0`}
 						>
-							{/* Label Column */}
 							<div className="font-bold text-sm text-gray-700 uppercase tracking-wide flex items-center">
 								{spec.label}
 							</div>
 
-							{/* Values for each vehicle */}
 							{vehicles.map((vehicle: any, vIdx: number) => (
 								<div
 									key={vIdx}

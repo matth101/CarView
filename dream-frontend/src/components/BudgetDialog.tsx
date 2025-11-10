@@ -31,9 +31,81 @@ const BudgetDialog = ({ isOpen, onClose, budgetData, onSave }: BudgetDialogProps
   }, [isOpen, budgetData]);
 
   const handleSave = () => {
-    onSave({ income, expenses, cash, creditScore });
+	const affordableRange = calculateAffordableMSRP(income, expenses, cash, creditScore);
+	onSave({ 
+	  income, 
+	  expenses, 
+	  cash, 
+	  creditScore,
+	  affordableRange // Pass the calculated range
+	});
   };
 
+  	// Utility function to calculate affordable MSRP based on financial inputs
+	const calculateAffordableMSRP = (
+		income: string,
+		expenses: string,
+		cash: string,
+		creditScore: string
+	): [number, number] | null => {
+		const incomeNum = parseFloat(income) || 0;
+		const expensesNum = parseFloat(expenses) || 0;
+		const cashNum = parseFloat(cash) || 0;
+
+		// Need at least income or cash to calculate
+		if (incomeNum === 0 && cashNum === 0) {
+		return null;
+		}
+
+		// Calculate disposable monthly income
+		const disposableIncome = incomeNum - expensesNum;
+
+		// Determine interest rate based on credit score
+		let interestRate = 0.06; // Default 6%
+		if (creditScore.includes('Excellent')) {
+		interestRate = 0.04; // 4% APR
+		} else if (creditScore.includes('Good')) {
+		interestRate = 0.05; // 5% APR
+		} else if (creditScore.includes('Fair')) {
+		interestRate = 0.08; // 8% APR
+		} else if (creditScore.includes('Poor')) {
+		interestRate = 0.12; // 12% APR
+		}
+
+		// Calculate affordable monthly payment (15-20% of disposable income)
+		const monthlyPaymentMin = Math.max(0, disposableIncome * 0.10); // Conservative: 10%
+		const monthlyPaymentMax = Math.max(0, disposableIncome * 0.20); // Aggressive: 20%
+
+		// Calculate maximum loan amount using loan formula
+		// Loan = Payment × [(1 - (1 + r)^-n) / r]
+		// Where r = monthly interest rate, n = number of months (60 for 5-year loan)
+		const monthlyRate = interestRate / 12;
+		const numMonths = 60; // 5-year loan
+
+		const loanMin = monthlyRate > 0 
+		? monthlyPaymentMin * ((1 - Math.pow(1 + monthlyRate, -numMonths)) / monthlyRate)
+		: monthlyPaymentMin * numMonths;
+		
+		const loanMax = monthlyRate > 0
+		? monthlyPaymentMax * ((1 - Math.pow(1 + monthlyRate, -numMonths)) / monthlyRate)
+		: monthlyPaymentMax * numMonths;
+
+		// Total affordable price = loan + down payment (cash)
+		const minPrice = Math.round(loanMin + cashNum);
+		const maxPrice = Math.round(loanMax + cashNum);
+
+		// If only cash is provided (no income), use cash as down payment on a conservative range
+		if (incomeNum === 0 && cashNum > 0) {
+		return [Math.round(cashNum * 0.5), Math.round(cashNum * 1.5)];
+		}
+
+		// Make sure we have reasonable bounds
+		const finalMin = Math.max(15000, Math.min(minPrice, 80000)); // Don't go below $15k
+		const finalMax = Math.min(90000, Math.max(finalMin + 5000, maxPrice)); // Don't exceed $90k	
+
+		return [finalMin, finalMax];
+	};
+  
   return (
     <AnimatePresence>
       {isOpen && (

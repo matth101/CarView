@@ -5,8 +5,14 @@ import { useState } from 'react';
 interface ResultsSectionProps {
 	recommendations: any[];
 	compareList: Set<number>;
-	onToggleCompare: (id: number, vehicle: any) => void;  // Add vehicle parameter
+	onToggleCompare: (id: number, vehicle: any) => void;
 }
+
+// Helper function to get the correct image path
+const getCarImage = (fullModel: string) => {
+	const cleanModel = fullModel.trim();
+	return `/toyota_vehicle_images/${cleanModel}.png`;
+};
 
 const ResultsSection = ({ recommendations, compareList, onToggleCompare }: ResultsSectionProps) => {
 	const [favorites, setFavorites] = useState<Set<number>>(new Set());
@@ -18,7 +24,7 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 		? recommendations.slice(0, 9).map((car, idx) => {
 			// Calculate match score based on how well it fits filters
 			const baseScore = 85;
-			const positionBonus = (6 - idx) * 2; // First result gets +10, last gets +2
+			const positionBonus = (6 - idx) * 2;
 			const matchScore = Math.min(99, baseScore + positionBonus);
 
 			return {
@@ -28,7 +34,7 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 				price: car.msrp || 0,
 				mpg: car.mpg_combined || 0,
 				matchScore: matchScore,
-				image: 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80',
+				image: getCarImage(car.full_model || 'Unknown Vehicle'),
 			};
 		})
 		: [];
@@ -47,7 +53,7 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 	};
 
 	return (
-		<div>
+		<div className="pb-24">
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -99,6 +105,10 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 										}}
 										transition={{ duration: 0.4 }}
 										className="w-full h-full object-cover"
+										onError={(e) => {
+											// Fallback if image doesn't exist
+											(e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1623869675241-913c326c3b96?w=800&q=80';
+										}}
 									/>
 								</div>
 
@@ -142,7 +152,7 @@ const ResultsSection = ({ recommendations, compareList, onToggleCompare }: Resul
 
 								{/* Compare Checkbox */}
 								<button
-									onClick={() => onToggleCompare(car.id, car)}  // Pass the car data
+									onClick={() => onToggleCompare(car.id, car)}
 									className={`w-full py-3 rounded-xl font-bold transition-all ${isInCompare
 											? 'bg-toyota-red text-white'
 											: 'bg-gray-100 text-gray-700 hover:bg-gray-200'

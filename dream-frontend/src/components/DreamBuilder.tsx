@@ -32,7 +32,8 @@ const DreamBuilder = () => {
 		income: '',
 		expenses: '',
 		cash: '',
-		creditScore: 'Excellent (750+)'
+		creditScore: 'Excellent (750+)',
+		affordableRange: null as [number, number] | null
 	});
 
 	const location = useLocation();
@@ -72,12 +73,17 @@ const DreamBuilder = () => {
 			// Map backend response to frontend filter format
 			const newFilters = {
 				vehicleTypes: new Set<string>(data.vehicle_types || []),
-				priceRange: data.price_range as [number, number],
+				priceRange: hasBudget && budgetData.affordableRange 
+					? budgetData.affordableRange  // ← Keep budget range if it exists
+					: data.price_range as [number, number],  // ← Otherwise use chat recommendation
 				mpgRange: data.mpg_range as [number, number],
 				seating: new Set<number>(data.seating_options || []),
 			};
 
 			console.log('🎯 Applying filters to UI:', newFilters);
+			if (hasBudget && budgetData.affordableRange) {
+				console.log('💰 Preserved budget price range:', budgetData.affordableRange);
+			}
 
 			// Update preferences text
 			if (data.preferences_text) {
@@ -276,8 +282,20 @@ const DreamBuilder = () => {
 				onClose={() => setShowBudgetDialog(false)}
 				budgetData={budgetData}  // Pass current values
 				onSave={(data) => {
-					setBudgetData(data);  // Store the values
+					console.log('💰 Budget saved:', data);
+					setBudgetData(data);
 					setHasBudget(true);
+					
+					// If an affordable range was calculated, update the price filter
+					if (data.affordableRange) {
+						const [minPrice, maxPrice] = data.affordableRange;
+						console.log(`📊 Auto-setting price range to: $${minPrice.toLocaleString()} - $${maxPrice.toLocaleString()}`);
+						setFilters(prev => ({
+							...prev,
+							priceRange: [minPrice, maxPrice]
+						}));
+					}
+					
 					setShowBudgetDialog(false);
 				}}
 			/>

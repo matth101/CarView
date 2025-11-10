@@ -73,9 +73,10 @@ const LandingPage = () => {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.6, duration: 0.8 }}
 					>
-						Your Next Horizon Awaits.
+						Find the Toyota that fits you.
 						<br />
-						<span className="text-toyota-red">Built for the Uncharted Road.</span>
+						<span className="text-toyota-red">Your lifestyle. Your budget. Your Toyota.
+						</span>
 					</motion.h1>
 
 					<motion.p
@@ -84,7 +85,8 @@ const LandingPage = () => {
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.8, duration: 0.8 }}
 					>
-						The most reliable road trip of your life starts now.
+						Tell us what matters — we’ll reveal the perfect match.
+
 					</motion.p>
 
 					{/* Enhanced CTA Button with Glow */}
